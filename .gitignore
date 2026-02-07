@@ -1,0 +1,22 @@
+# --- Python & Build Artifacts ---
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.spec
+
+# --- Sensitive User Data (CRITICAL TO IGNORE) ---
+# Prevents uploading your database and friends' IPs
+vpn_data.json
+app_config.json
+
+# --- Sensitive WireGuard Keys (CRITICAL TO IGNORE) ---
+# Prevents uploading private keys found in configs
+Friend_Configs/
+HOST_THIS_PC.conf
+GamingLAN.conf
+*.conf
+
+# --- Logs & System ---
+*.log
+Thumbs.db
