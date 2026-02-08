@@ -3,6 +3,7 @@
 ![Version](https://img.shields.io/badge/version-2026.40-blueviolet?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/platform-Windows-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20Me-red?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/SovereignBit)
 
 **The ultimate tool for creating secure, split-tunnel WireGuard VPNs for gaming with friends.**
 
