@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20Me-red?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/SovereignBit)
 
-**The ultimate tool for creating secure, split-tunnel WireGuard VPNs for gaming with friends.**
+**The ultimate tool for creating secure, zero-config Virtual LANs over the internet for gaming with friends.**
 
 <p align="center">
   <img src="screenshot_ui.png" alt="Gaming LAN Manager Screenshot" width="600">
@@ -13,14 +13,15 @@
   <em>Midnight Obsidian UI - Elastic, Secure, and Manual.</em>
 </p>
 
-## 🚀 Why use this?
-Setting up a VPN for gaming usually involves complex config files, command lines, or expensive paid software (like Hamachi).
+## 🚀 Why use this? (The Use Case)
+Standard VPNs are great for privacy, but they often struggle with LAN game discovery (multicast/broadcast traffic) without complex routing, and standard physical LAN parties don't work when friends live miles apart.
 
-**Gaming LAN Manager** solves this by:
-1.  **Automating Keys:** Generates secure WireGuard Public/Private keys instantly.
-2.  **Split-Tunneling:** Only game traffic (`10.100.0.x`) goes through the VPN. Your normal internet stays fast.
-3.  **No "Spyware":** It's a simple Python script. No accounts, no ads, no bloat.
-4.  **Friend Management:** Create, export, and ban users with one click.
+**Gaming LAN Manager solves this by:**
+1. **Virtual LAN over WAN:** Mimicking a physical local network over the internet so older titles (like *Command & Conquer: Generals*, or other retro games) can instantly discover local servers.
+2. **Zero-Config Routing:** Automating the annoying parts of WireGuard (Key generation, NAT masquerading, and IP Forwarding).
+3. **Hybrid LANs:** Allowing a remote friend to tunnel into a physical LAN party and appear as a local player.
+4. **Split-Tunneling:** Only game traffic (`10.100.0.x`) goes through the VPN. Your normal internet stays fast.
+5. **No "Spyware":** It's a simple Python script. No accounts, no ads, no bloat.
 
 ## ✨ New in v2026.41
 * **Elastic layout:** Fixed button areas and a scrollable friend list that expands properly.
@@ -86,6 +87,7 @@ If you prefer to only open the specific port:
 ### For the HOST (You)
 
 1. Open the app and click **+ Add New Friend**.
+   > **Note:** You do **not** need to run this as Administrator just to generate config files! The core purpose of this app is simply to create the files for WireGuard. *(Running as Admin enables live connection status for each friend, but this can cause the app to lag, so it is strictly optional).*
 2. Enter their name (e.g., "Dave").
 3. The app creates a file: `Friend_Configs/Dave_VPN.conf`.
 4. **Send this file to Dave** (Discord, Email, etc.).
@@ -137,6 +139,7 @@ python -m PyInstaller --noconsole --onefile --icon="gaminglan.ico" --add-data "g
 | Issue | Solution |
 | --- | --- |
 | **Status won't turn "ONLINE"** | The app checks if `wireguard.exe` is running. Open the WireGuard app and verify the tunnel is "Active". |
+| **UI Lags / Freezes** | If run as Administrator, the app attempts to check live connection statuses for friends, which can cause lag. Since the app is just a config generator, simply run it normally (without Admin) for a smooth experience. |
 | **Friend can't connect** | Double-check your Router Port Forwarding (**UDP 52392**). Ensure Windows Firewall isn't blocking WireGuard. |
 | **"Charmap" / Encoding Error** | You are using an old version. Update to **Onyx Edition (v2026.41)** which supports UTF-8 Emojis in config files. |
 | **Config file missing** | Check the `Friend_Configs` folder. If WireGuard was missing when you created it, the app will auto-repair it next time you launch. |
@@ -154,7 +157,4 @@ This project is open-source (MIT). Feel free to fork, mod, and share.
 * **Co-Pilot:** Gemini AI (Google)
 
 *Built with Python & Tkinter. Powered by WireGuard.*
-
-```
-
-```
+---
